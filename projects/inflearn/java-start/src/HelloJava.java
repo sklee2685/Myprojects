@@ -1,6 +1,6 @@
 public class HelloJava {// HelloJava 클래스의 범위 시작
 
     public static void main(String[] args){ // main() 매소드의 범위 시작
-        System.out.println("hello java");
+        System.out.println("Hello Java");
     }
 }
