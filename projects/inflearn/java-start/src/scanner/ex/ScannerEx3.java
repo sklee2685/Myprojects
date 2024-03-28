@@ -21,7 +21,6 @@ public class ScannerEx3 {// 음식점 주문
      */
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int totalPrice = 0;
 
         System.out.print("음식 이름을 입력해주세요: ");
         String foodName = scanner.nextLine();
@@ -32,7 +31,7 @@ public class ScannerEx3 {// 음식점 주문
         System.out.print("음식의 수량을 입력해주세요: ");
         int foodQuantity = scanner.nextInt();
 
-        totalPrice = foodPrice * foodQuantity;
+        int totalPrice = foodPrice * foodQuantity;
 
         System.out.println(foodName + " " + foodQuantity + "개를 주문하셨습니다. 총 가격은 " + totalPrice + "원입니다.");
     }

@@ -40,8 +40,8 @@ public class ScannerWhileEx3 {//입력한 숫자의 합계와 평균
             sum += num;
 
         }/*
-        while ((input = scanner.nextInt()) != -1) {
-        sum += input;
+        while ((num = scanner.nextInt()) != -1) {
+        sum += num;
         count++;
         }
 

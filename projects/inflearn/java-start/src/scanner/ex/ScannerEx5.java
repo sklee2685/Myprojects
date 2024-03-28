@@ -19,7 +19,6 @@ public class ScannerEx5 {// 사이 숫자 **마지막 코드 부분 다시 체�
      */
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        String str;
 
         System.out.print("첫 번째 숫자를 입력하세요: ");
         int num1 = scanner.nextInt();

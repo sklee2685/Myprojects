@@ -31,8 +31,9 @@ public class ScannerWhileEx1 {//이름 과 나이 반복
             }
 
             System.out.print("나이를 입력하세요: ");
-            int age = scanner.nextInt();
-            scanner.nextLine();// 숫자 입력 후 줄바꿈 => 해당 줄바꿈 코드가 없으면 처음 입력 후 오류가 발생
+            int age = scanner.nextInt();// 10을 입력후 엔터(\n)를 입력하면 nextInt()에서 10만 가지고감-> 엔터(\n)값은 남아있음
+            // 그래서 반복문을 통해 다시 처음부터 값을 입력받으면 처음 이름을 입력하는 부분이 그냥 넘어감
+            scanner.nextLine();// 따라서 해당 코드를 통해 남은 엔터(\n)값을 가지고감
 
             System.out.println("입력한 이름: " + name + ", 나이: " + age);
         }
