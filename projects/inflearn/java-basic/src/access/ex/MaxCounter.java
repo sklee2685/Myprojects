@@ -9,12 +9,13 @@ public class MaxCounter {
     }
 
     public void increment() {
+        //검증 로직
         if (count >= max) {
             System.out.println("최대값을 초과할 수 없습니다.");
             return;
-        } else {
-            count++;
         }
+        //실행 로직
+        count++;
     }
 
     public int getCount() {
