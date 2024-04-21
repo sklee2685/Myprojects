@@ -1,4 +1,4 @@
-package memory.static1;
+package static1;
 
 public class DataCountMain2 {
     public static void main(String[] args) {// static의 필요 이유 -인스턴스 내부 변수에 카운트 저장하는 프로그램

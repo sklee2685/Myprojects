@@ -1,4 +1,4 @@
-package memory.static2;
+package static2;
 
 public class DecoMain2 {// static 메소드
     public static void main(String[] args) {

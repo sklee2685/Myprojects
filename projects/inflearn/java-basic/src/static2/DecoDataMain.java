@@ -1,7 +1,6 @@
-package memory.static2;
+package static2;
 
-import memory.static1.Data2;
-//import static memory.static2.DecoData.*;// 해당 코드를 해주면  DecoData.staticCall();을 staticCall();으로 단축 가능
+//import static static2.DecoData.*;// 해당 코드를 해주면  DecoData.staticCall();을 staticCall();으로 단축 가능
 
 public class DecoDataMain {
     public static void main(String[] args) {

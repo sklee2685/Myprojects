@@ -1,4 +1,4 @@
-package memory.static1;
+package static1;
 
 public class DataCountMain3 {// static 활용
     public static void main(String[] args) {

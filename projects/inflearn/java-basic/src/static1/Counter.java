@@ -1,4 +1,4 @@
-package memory.static1;
+package static1;
 
 public class Counter {
     public int count;

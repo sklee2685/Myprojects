@@ -1,4 +1,4 @@
-package memory.static2;
+package static2;
 
 public class DecoData {
     private int instanceValue;
