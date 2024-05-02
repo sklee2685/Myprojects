@@ -11,6 +11,6 @@ public class Album extends Item{
     @Override
     public void print() {
         super.print();
-        System.out.println("- 아티스트:" + artist + "\n");
+        System.out.println("- 아티스트: " + artist);
     }
 }

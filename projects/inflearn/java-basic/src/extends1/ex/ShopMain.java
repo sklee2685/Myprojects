@@ -1,6 +1,6 @@
 package extends1.ex;
 
-public class ShopMain {// 상속 관계 상품 - 다시 풀어보기
+public class ShopMain {// 상속 관계 상품
     /*
     쇼핑몰의 판매 상품을 만들어보자.
     `Book` , `Album` , `Movie` 이렇게 3가지 상품을 클래스로 만들어야 한다.
