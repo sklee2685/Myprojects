@@ -19,6 +19,5 @@ public class OverridingMain {
         System.out.println("Parent -> Child");
         System.out.println("value = " + poly.value); // 변수는 오버라이딩x
         poly.method(); // 메서드 오버라이딩!
-
     }
 }
