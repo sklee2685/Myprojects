@@ -1,6 +1,6 @@
 package lang.object.poly;
 
-public class ObjectPoltExample1 {
+public class ObjectPolyExample1 {
     public static void main(String[] args) {
         Dog dog = new Dog();
         Car car = new Car();
@@ -19,5 +19,15 @@ public class ObjectPoltExample1 {
         } else if (obj instanceof Car car) {
             car.move();
         }
+        /*
+        // 위에 코드랑 동일한 코드
+        if (obj instanceof Dog) {
+            Dog dog = (Dog) obj;
+            dog.sound();
+        } else if (obj instanceof Car) {
+            Car car = (Car) obj;
+            car.move();
+        }
+         */
     }
 }
