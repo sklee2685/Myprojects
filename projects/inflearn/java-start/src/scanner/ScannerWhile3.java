@@ -21,6 +21,7 @@ public class ScannerWhile3 {// Scanner+반복문
                 System.out.println("프로그램을 종료합니다.");
                 break;
             }
+            // 0이 입력되기 전 까지 입력된 숫자들을 sum에 더함
             sum += num1;
         }
         System.out.println("입력한 숫자들의 합: " + sum);

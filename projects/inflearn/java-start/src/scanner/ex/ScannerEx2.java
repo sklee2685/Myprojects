@@ -16,11 +16,13 @@ public class ScannerEx2 {// 홀수 짝수
     입력한 숫자 4는 짝수입니다.
     */
     public static void main(String[] args) {
+        // Scanner클래스를 사용할 객체 생성
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("하나의 정수를 입력하세요: ");
-        int num = scanner.nextInt();
+        int num = scanner.nextInt(); // int타입으로 입력받은 값을 num에 초기화
 
+        // 짝수는 2로 나누면 나머지 값이 0인 점을 이용
         if (num % 2 == 0) {
             System.out.println("입력한 숫자 " + num + "는 짝수 입니다.");
         } else {

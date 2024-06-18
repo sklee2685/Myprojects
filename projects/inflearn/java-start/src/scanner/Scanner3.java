@@ -13,6 +13,7 @@ public class Scanner3 {// 사용자로부터 두 개의 정수를 입력 받고,
         System.out.print("두 번쨰 정수를 입력하세요: ");
         int num2 = scanner.nextInt();
 
+        // 입력받은 두 정수를 if문을 통해 크기 비교
         if (num1 > num2) {
             System.out.println("입력 받은 두 정수중 더 큰 수는: " + num1);
         } else if (num1 < num2) {

@@ -15,10 +15,16 @@ public class ChangeVarEx {// 변수 값 교환
         int a = 10;
         int b = 20;
         int temp;
+        // 자바는 항상 변수의 값을 복사해서 대입한다는 특징으로 인해
 
         temp = a;
+        //10(temp) = 10(a)
+
         a = b;
+        //20(a) = 20(b)
+
         b = temp;
+        //10(b) = 10(temp) 으로 나타낼 수 있음
 
         System.out.println("a = "+a+"\n"+"b = "+b);
     }
