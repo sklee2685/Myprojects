@@ -24,13 +24,14 @@ public class ScannerWhileEx3 {//입력한 숫자의 합계와 평균
         Scanner scanner = new Scanner(System.in);
         int sum=0;
         int count=0;
-        int num = 0;
+        int num;
 
         System.out.println("숫자를 입력하세요. 입력을 중단하려면 -1을 입력하세요: ");
         while (true) {
             num = scanner.nextInt();
 
             if (num == -1) {
+                //소수점까지 나타내기 위해 명시적 형변환을 사용해 int형였던 sum을 double형으로 변환
                 double average = (double) sum / count;
                 System.out.println("입력한 숫자들의 합계: " + sum);
                 System.out.println("입력한 숫자들의 평균: " + average);
@@ -48,6 +49,7 @@ public class ScannerWhileEx3 {//입력한 숫자의 합계와 평균
         double average = (double) sum / count;
         System.out.println("입력한 숫자들의 합계: " + sum);
         System.out.println("입력한 숫자들의 평균: " + average);
-        //으로 축약 가능 */
+        */
+        //으로 축약 가능
     }
 }

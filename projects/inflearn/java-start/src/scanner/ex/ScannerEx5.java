@@ -18,24 +18,27 @@ public class ScannerEx5 {// 사이 숫자 **마지막 코드 부분 다시 체�
     두 숫자 사이의 모든 정수:2,3,4,5
      */
     public static void main(String[] args) {
+        // Scanner클래스를 사용할 객체 생성
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("첫 번째 숫자를 입력하세요: ");
-        int num1 = scanner.nextInt();
+        int num1 = scanner.nextInt(); //int타입으로 값을 받아 변수 num1에 초기화
 
         System.out.print("두 번째 숫자를 입력하세요: ");
-        int num2 = scanner.nextInt();
+        int num2 = scanner.nextInt(); //int타입으로 값을 받아 변수 num2에 초기화
 
+        // num1이 num2보다 크면 두 숫자를 교환
         if (num1 > num2) {
             int temp;
             temp = num1;
             num1 = num2;
             num2 = temp;
         }
+
         System.out.println("두 숫자 사이의 모든 정수: ");
         for (int i = num1; i <= num2; i++) {
             System.out.print(i);
-            if (i != num2) {
+            if (i != num2) { //맨 마지막 정수일때 ,를 제외하고 출력
                 System.out.print(",");
             }
         }
