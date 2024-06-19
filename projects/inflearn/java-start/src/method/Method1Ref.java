@@ -21,7 +21,8 @@ public class Method1Ref {//메소드 선언
         System.out.println("결과2 출력: " + sum2);
     }
 
-    public static int add(int a, int b) {//메소드(함수) 선언 매개변수or파라미터 = int a,int b
+    //메소드(함수) 선언 매개변수or파라미터 = int a,int b
+    public static int add(int a, int b) { // 메인 메서드로 부터 int형 변수 a,b를 입력 받아 +연산
         System.out.println(a + "+" + b + " 연산 수행");
         int sum = a + b;
         return sum;

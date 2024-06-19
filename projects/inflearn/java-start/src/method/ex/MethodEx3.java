@@ -40,12 +40,15 @@ public class MethodEx3 {//입출금 리펙토링
 
     }
 
+    // 현재 잔액 및 입금할 금액을 입력 받으면 +연산자를 통해 더한 값 return
     public static int deposit(int balance, int amount) {
         balance += amount;
         System.out.println(amount + "원을 입금하였습니다. 현재 잔액: " + balance + "원");
         return balance;
     }
 
+    // 현재 잔액 및 입금할 금액을 입력 받으면 -연산자를 통해 뺀 값 return하는데,
+    //if문을 통해 잔액이 부족하면 잔액 부족 문구 출력
     public static int withdraw(int balance, int amount) {
         if (balance >= amount) {
             balance -= amount;

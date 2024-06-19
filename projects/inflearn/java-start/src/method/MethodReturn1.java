@@ -15,7 +15,12 @@ public class MethodReturn1 {//반환 타입
         if (i % 2 == 1) {
             return true;
         } else {
-            return false;//만약 해당 코드가 없다면 if문을 만족하면 true가 반환되지만, 조건을 만족하지 않으면 return문이 실행되지 않는다. 따라서 return문이 누락이 된 판정
+            return false;
+            /*
+            만약 해당 코드가 없다면 if문을 만족하면 true가 반환되지만,
+            조건을 만족하지 않으면 return문이 실행되지 않는다.
+            따라서 return문이 누락이 된 판정
+            */
         }
     }
 }

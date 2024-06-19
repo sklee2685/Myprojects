@@ -7,7 +7,7 @@ public class Break2 {
         int sum = 0;
         int i = 1;
 
-        for (; ; ) {
+        for (; ; ) {//조건이 없기 때문에 break문을 만나지 전까지 무한 반복
             sum += i;
             if (sum > 10){
                 System.out.println("i = " + i + " sum = " + sum);

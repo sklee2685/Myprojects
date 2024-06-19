@@ -7,7 +7,7 @@ public class Break1 {// break
         int sum = 0;
         int i = 1;
 
-        while (true){
+        while (true){// 변수 sum이 10보다 커질때 까지 무한반복
             sum += i;
             if (sum > 10) {
                 System.out.println("합이 10보다 크면 종료: i = " + i + " sum = " + sum);
