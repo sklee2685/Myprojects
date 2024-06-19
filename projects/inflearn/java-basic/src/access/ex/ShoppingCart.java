@@ -17,6 +17,7 @@ public class ShoppingCart {
             itemCount++;
     }
 
+    //현재 장바구니에 있는 상품명 및 금액
     public void displayItems() {
         System.out.println("장바구니 상품 출력");
         for (int i = 0; i < itemCount; i++) {
@@ -25,6 +26,8 @@ public class ShoppingCart {
         }
         System.out.println("전체 가격 합:" + TotalPrice());
     }
+
+    // 장바구니에 있는 상품의 총합
     private int TotalPrice() {
         int totalPrice = 0;
         for (int i = 0; i < itemCount; i++) {

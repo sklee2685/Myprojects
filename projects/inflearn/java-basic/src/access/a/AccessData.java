@@ -21,7 +21,7 @@ public class AccessData {//접근 제어자 사용 -필드, 메서드
         System.out.println("내부 호출");
         publicField = 100;
         defaultField = 200;
-        publicField = 300;
+        privateField = 300;
         publicMethod();
         defaultMethod();
         privateMethod();

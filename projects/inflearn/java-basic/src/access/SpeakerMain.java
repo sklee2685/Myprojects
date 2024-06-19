@@ -29,7 +29,7 @@ public class SpeakerMain {//접근제어자의 이해1
 
     /*
     수정 후
-    Speaker 클래스에 있는 int voulume을 private int volume;으로 바꿔줌으로써
+    Speaker 클래스에 있는 `int voulume`을 `private int volume;`으로 바꿔줌으로써
     외부에서 `volume` 필드에 직접 접근할 수 없게 막음
     ->volume 필드는 이제 Speaker 내부에서만 접근할 수있다.
      */
