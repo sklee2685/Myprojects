@@ -1,6 +1,6 @@
 //로그인 버튼이 눌렸을때
 document.querySelector("#login_button").addEventListener("click", () => {
-    let id = ocument.querySelector("#l_id").value;//#l_id로 부터 값을 받아와 id에 저장
+    let id = document.querySelector("#l_id").value;//#l_id로 부터 값을 받아와 id에 저장
     const password = "1234";//공통 비밀번호
     
     switch (id){ //id 값을 받아와 switch문에서 아이디 체크
@@ -60,7 +60,7 @@ document.querySelector("#login_button").addEventListener("click", () => {
 //회원가입 버튼이 눌렸을때
 document.querySelector('#register_button').addEventListener("click",()=>{
     if (confirm("회원가입 페이지로 이동하겠습니까?") == true){
-        location. href="register.html";//confirm으로 확인(true)을 누르면 페이지가 넘어감
+        location.href="register.html";//confirm으로 확인(true)을 누르면 페이지가 넘어감
     }else{
         return false;
     }
