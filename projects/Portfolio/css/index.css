@@ -115,7 +115,7 @@ h2{
     left: 1px;
 }
 
-/* +버튼
+/* +버튼 */
 .toggle-box{
     width: 1px;
     height: 75px;
@@ -126,7 +126,7 @@ h2{
     left: -30px;
     text-decoration: none;
     cursor: pointer;
-} */
+}
 
 /* +버튼 색상 */
 .fa-plus{
@@ -147,7 +147,6 @@ ul{
     display: flex;
     flex-direction: column;
     width: 100%;
-
 }
 
 /* 메뉴 글씨 및 아이콘 전체적인 비율 */
