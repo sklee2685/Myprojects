@@ -2,7 +2,7 @@ package 자바;
 
 import java.util.Scanner;
 
-public class b1000 {// A+B
+public class b1001 { //A-B
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -10,7 +10,7 @@ public class b1000 {// A+B
         //int a = scanner.nextInt();
         //int b = scanner.nextInt();
         //
-        //System.out.println(a + b);
+        //System.out.println(a - b);
 
         //#2
         String nums = scanner.nextLine();
@@ -22,6 +22,6 @@ public class b1000 {// A+B
         int a = Integer.parseInt(num[0]);
         int b = Integer.parseInt(num[1]);
 
-        System.out.println(a + b);
+        System.out.println(a - b);
     }
 }
