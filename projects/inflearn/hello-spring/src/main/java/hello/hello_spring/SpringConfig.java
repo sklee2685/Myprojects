@@ -1,12 +1,15 @@
 package hello.hello_spring;
+import hello.hello_spring.aop.TimeTraceAop;
 import hello.hello_spring.repository.*;
 import hello.hello_spring.service.MemberService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
 @Configuration
 public class SpringConfig { // 자바 코드로 직접 스프링 빈 등록
 
     private final MemberRepository memberRepository;
+
     public SpringConfig(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
     }
@@ -30,6 +33,12 @@ public class SpringConfig { // 자바 코드로 직접 스프링 빈 등록
         return new MemberService(memberRepository);
     }
 
+    ////aop
+    //@Bean
+    //public TimeTraceAop timeTraceAop() {
+    //    return new TimeTraceAop();
+    //}
+
     //@Bean
     //public MemberRepository memberRepository() {
     //    //return new MemoryMemberRepository();
@@ -37,4 +46,6 @@ public class SpringConfig { // 자바 코드로 직접 스프링 빈 등록
     //    //return new JdbcTemplateMemberRepository(dataSource);
     //    //return new JpaMemberRepository(em);
     //}
+
+
 }
