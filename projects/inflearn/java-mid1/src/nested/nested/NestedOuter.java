@@ -1,4 +1,4 @@
-package nested.nested.nested;
+package nested.nested;
 
 public class NestedOuter {
 

@@ -1,4 +1,4 @@
-package nested.nested;
+package nested;
 
 public class ShadowingMain {//같은 이름의 바깥 변수 접근
 
