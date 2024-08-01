@@ -18,8 +18,8 @@ public class DecoData {
     }
 
     public void instanceCall() {// 인스턴스 메서드로 모든 곳에서 호출 가능
-        instanceValue++;// 인스턴스 변수 접근, compile error
-        instanceMethod();// 인스턴스 메서드 접근,compile error
+        instanceValue++;// 인스턴스 변수 접근
+        instanceMethod();// 인스턴스 메서드 접근
 
         staticValue++;//정적 변수 접근
         staticMethod();//정적 메서드 접근
