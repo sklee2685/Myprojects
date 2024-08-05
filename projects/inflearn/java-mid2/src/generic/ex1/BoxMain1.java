@@ -7,6 +7,8 @@ public class BoxMain1 {//제네릭 필요한 이유- 제네릭 미사용
      * `Double`,`Boolean`을 포함한 다양한 타입을 담는 박스가 필요하다면 각각의 타입별로
      * `DoubleBox`,`BooleanBox`와 같이 클래스를 새로 만들어야하는데,
      * 담는 타입이 수십개의 `XxxBox`클래스를 만들어야 함
+     *
+     * 코드 재사용은 못하지만, 타입 안전성이 높음
      */
     public static void main(String[] args) {
         IntegerBox integerBox = new IntegerBox();
