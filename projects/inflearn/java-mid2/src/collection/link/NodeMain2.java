@@ -1,4 +1,4 @@
-package link;
+package collection.link;
 
 public class NodeMain2 {
     public static void main(String[] args) {//연결된 노드 출력

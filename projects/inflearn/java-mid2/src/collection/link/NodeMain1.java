@@ -1,4 +1,4 @@
-package link;
+package collection.link;
 
 public class NodeMain1 {// LinkedList 구현
 

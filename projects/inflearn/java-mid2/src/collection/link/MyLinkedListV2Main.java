@@ -1,4 +1,4 @@
-package link;
+package collection.link;
 
 public class MyLinkedListV2Main {//LinkedList 추가와 삭제 구현
     public static void main(String[] args) {

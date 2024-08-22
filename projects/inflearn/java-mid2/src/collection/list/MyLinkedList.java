@@ -1,9 +1,10 @@
-package link;
+package collection.list;
 
-public class MyLinkedListV3<E> {//LinkedList 제네릭 사용
+public class MyLinkedList<E> implements MyList<E> {
     private Node<E> first;
     private int size = 0;
 
+    @Override
     public void add(E e) {
         Node<E> newNode = new Node<>(e);
         if (first == null) {
@@ -23,6 +24,7 @@ public class MyLinkedListV3<E> {//LinkedList 제네릭 사용
         return x;
     }
 
+    @Override
     public void add(int index, E e) {
         Node<E> newNode = new Node<>(e);
         if (index == 0) {
@@ -36,12 +38,15 @@ public class MyLinkedListV3<E> {//LinkedList 제네릭 사용
         size++;
     }
 
+    @Override
     public E set(int index, E element) {
         Node<E> x = getNode(index);
         E oldValue = x.item;
         x.item = element;
         return oldValue;
     }
+
+    @Override
     public E remove(int index) {
         Node<E> removeNode = getNode(index);
         E removedItem = removeNode.item;
@@ -57,6 +62,7 @@ public class MyLinkedListV3<E> {//LinkedList 제네릭 사용
         return removedItem;
     }
 
+    @Override
     public E get(int index) {
         Node<E> node = getNode(index);
         return node.item;
@@ -70,6 +76,7 @@ public class MyLinkedListV3<E> {//LinkedList 제네릭 사용
         return x;
     }
 
+    @Override
     public int indexOf(E o) {
         int index = 0;
         for (Node<E> x = first; x != null; x = x.next) {
@@ -80,22 +87,23 @@ public class MyLinkedListV3<E> {//LinkedList 제네릭 사용
         return -1;
     }
 
+    @Override
     public int size() {
         return size;
     }
 
     @Override
     public String toString() {
-        return "MyLinkedListV3{" +
+        return "MyLinkedListV1{" +
                 "first=" + first +
                 ", size=" + size +
                 '}';
     }
 
-    //중첩 클래스
     private static class Node<E> {
         E item;
         Node<E> next;
+
         public Node(E item) {
             this.item = item;
         }

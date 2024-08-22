@@ -1,4 +1,4 @@
-package link;
+package collection.link;
 
 public class Node {//LinkedList 구현
     Object item;

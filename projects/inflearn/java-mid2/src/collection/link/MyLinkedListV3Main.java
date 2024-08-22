@@ -1,4 +1,4 @@
-package link;
+package collection.link;
 
 public class MyLinkedListV3Main {//LinkedList 제네릭 사용
     public static void main(String[] args) {
