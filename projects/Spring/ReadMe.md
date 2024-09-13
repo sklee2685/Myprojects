@@ -1,0 +1,3 @@
+- board : spring,mybatis,mysql,Thymeleaf,lombok 을 사용한 게시판 만들기
+- demo-mybatis: mybaits 기본적인 사용법
+- springBoot_test: 스프링부트 사용법 예제
