@@ -11,4 +11,5 @@ public class BoardDTO {
     private String boardContents; // 내용
     private int boardHits; // 조회수
     private String createdAt; //작성 시간
+    private int fileAttached;
 }
