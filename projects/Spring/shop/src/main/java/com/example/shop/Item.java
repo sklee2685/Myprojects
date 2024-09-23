@@ -1,8 +1,10 @@
 package com.example.shop;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
 @Entity
+@Data
 public class Item {//데이터베이스 테이블의 컬럼 만들기
     /*
     * @Id => primary key 설정
@@ -11,10 +13,10 @@ public class Item {//데이터베이스 테이블의 컬럼 만들기
     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Long id;
+    private Long id;
 
     // @Column()을 통해 컬럼에 제약설정 가능 중복방지, 필수 입력(데이터가 비어있을 경우 저장을 막아줌) 등
     @Column(nullable = false)// 필수 입력
-    public String title;
-    public Integer price;
+    private String title;
+    private Integer price;
 }

@@ -6,21 +6,18 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-
     <link href="/main.css" rel="stylesheet">
 
 </head>
 <body>
-
 <div th:replace="~{nav.html :: navbar}"></div>
 
-<!--내용-->
-<div class="card" th:each="item : ${items}" style="display: flex; align-items: center;">
-    <img src="https://placehold.co/300" style="margin: 20px">
-    <div>
-        <h4><td th:text="${item.title}"></td></h4>
-        <p><td th:text="${item.price}"></td></p>
-    </div>
-</div>
+<!--상품 추가하는 폼-->
+<form action="/itemAdd" method="post">
+    제품명<input name="title"><br>
+    가격<input name="price"><br>
+    <button type="submit">전송</button>
+</form>
+
 </body>
 </html>
