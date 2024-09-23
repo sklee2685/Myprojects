@@ -6,22 +6,21 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-
     <link href="/main.css" rel="stylesheet">
 
 </head>
 <body>
-
 <div th:replace="~{nav.html :: navbar}"></div>
 
-<!--내용-->
-<div class="card" th:each="item : ${items}" style="display: flex; align-items: center;">
-    <img src="https://placehold.co/300" style="margin: 20px">
+<div class="detail"th:each="id : ${id}">
+    <h4>상세페이지</h4>
+    <img src="https://placehold.co/300">
     <div>
-        <!--title을 누르면 상세페이지/id 로 이동-->
-        <h4><a th:href="@{'/detail/' + ${item.id}}" th:text="${item.title}"></a></h4>
-        <p><td th:text="${item.price}"></td></p>
+        <h4><td th:text="${id.title}"></td></h4>
+        <p><td th:text="${id.price}"></td></p>
+
     </div>
 </div>
+
 </body>
 </html>
