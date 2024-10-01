@@ -12,11 +12,12 @@
 <body>
 <div th:replace="~{nav.html :: navbar}"></div>
 
-<!--상품 추가하는 폼-->
-<form action="/itemAdd" method="post">
-    <input name="title" placeholder="제품명"><br>
-    <input name="price" placeholder="가격"><br>
-    <button type="submit">전송</button>
+<!--상품 수정하는 폼-->
+<form action="/edit" method="post">
+    <input name="id" th:value="${id.id}" style="display: none">
+    <input name="title" th:value="${id.title}">제품명<br>
+    <input name="price" th:value="${id.price}">가격<br>
+    <button type="submit">수정</button>
 </form>
 
 </body>
