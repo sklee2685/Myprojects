@@ -12,11 +12,11 @@
 <body>
 <div th:replace="~{nav.html :: navbar}"></div>
 
-<!--CSRF 기능-->
-<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
-
 <!--상품 수정하는 폼-->
 <form action="/edit" method="post">
+    <!--CSRF 기능-->
+    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+
     <input name="id" th:value="${id.id}" style="display: none">
     <input name="title" th:value="${id.title}">제품명<br>
     <input name="price" th:value="${id.price}">가격<br>

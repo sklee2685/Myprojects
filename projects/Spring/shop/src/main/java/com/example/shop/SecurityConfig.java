@@ -49,7 +49,7 @@ public class SecurityConfig {
                 logout.logoutUrl("/logout")           // 로그아웃 요청 처리 URL
                         .invalidateHttpSession(true)    // 로그아웃 시 세션 무효화
                         .deleteCookies("JSESSIONID")    // 로그아웃 시 쿠키 삭제
-                        .logoutSuccessUrl("/login") // 로그아웃 성공 후 이동할 URL
+                        .logoutSuccessUrl("/login?logout") // 로그아웃 성공 후 이동할 URL
         );
         return http.build();
     }

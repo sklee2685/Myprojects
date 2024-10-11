@@ -8,6 +8,6 @@
         <span th:text="${#authentication.name} + '님'"></span>
     </a>
     <div sec:authorize="isAuthenticated()">
-    <a href="/logout">로그아웃</a>
+    <a href="/login">로그아웃</a>
     </div>
 </div>
