@@ -19,9 +19,15 @@
     <img src="https://placehold.co/300" style="margin: 20px">
     <div>
         <!--title을 누르면 상세페이지/id 로 이동-->
-        <h4><a th:href="@{'/detail/' + ${item.id}}" th:text="${item.title}"></a></h4>
-        <p><td th:text="${item.price}"></td></p>
-        <p><a th:href="@{'/edit/' + ${item.id}}" >수정</a></p>
+        <a th:href="@{'/detail/' + ${item.id}}"><h4 th:text="${item.title}">제목</h4></a>
+        <p th:text="${item.price}">가격</p>
+        <a th:href="@{'/edit/' + ${item.id}}">수정</a>
+        <span th:onclick="fetch('/delete?id=[[${item.id}]]',{method :'DELETE'})
+        .then(r=>r.text())
+        .then(()=>{
+            location.reload()
+        })
+        ">🗑️</span>
     </div>
 </div>
 </body>

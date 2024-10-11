@@ -1,6 +1,9 @@
 package com.example.shop.item;
 
+import com.example.shop.member.Member;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
@@ -13,10 +16,11 @@ public class ItemService {//데이터 전송 전에 이거저거 처리해주는
 
     private final ItemRepository itemRepository;
 
-    public void saveItem(String title, Integer price) {//서버에서 db로 데이터 입출력
+    public void saveItem(String title, Integer price , Authentication auth) {//서버에서 db로 데이터 입출력
         Item items = new Item();
         items.setTitle(title);
         items.setPrice(price);
+        items.setAddUser(auth.getName());
         itemRepository.save(items);
     }
     //서버에서 db로 데이터 전송 (위에 코드는 아래 코드를 자세히)
@@ -45,7 +49,7 @@ public class ItemService {//데이터 전송 전에 이거저거 처리해주는
         }
     }
 
-    //기존 내용 수정w
+    //기존 내용 수정
     public void editDB(String title, Integer price, Long id) {
         Item item = new Item();
         item.setId(id);

@@ -19,4 +19,5 @@ public class Item {//데이터베이스 테이블의 컬럼 만들기
     @Column(nullable = false)// 필수 입력
     private String title;
     private Integer price;
+    private String addUser;
 }

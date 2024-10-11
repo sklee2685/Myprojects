@@ -9,9 +9,8 @@ import java.time.ZonedDateTime;
 @Controller
 public class BasicController {
     @GetMapping("/") // 누가 메인페이지에 접속하면
-    @ResponseBody
     String hello(){
-        return "안녕하세요"; // 해당 문자열을 반환
+        return "/login.html"; // 해당 문자열을 반환
     }
 
     //추가

@@ -1,6 +1,10 @@
 package com.example.shop.item;
 
+import com.example.shop.member.MemberRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -14,6 +18,7 @@ public class ItemListController { //상품목록 페이지
 
     //ItemService 사용하기
     private final ItemService itemService;
+
 
 
     //Lombok 없이 사용
@@ -37,8 +42,8 @@ public class ItemListController { //상품목록 페이지
     }
 
     @PostMapping("/itemAdd")
-    String addPost(@RequestParam String title, @RequestParam Integer price) {
-        itemService.saveItem(title, price);
+    String addPost(@RequestParam String title, @RequestParam Integer price, Authentication auth) {
+        itemService.saveItem(title, price, auth);
         return "redirect:/list";
     }
 
@@ -64,6 +69,13 @@ public class ItemListController { //상품목록 페이지
     String editItem(String title, Integer price, Long id) {
         itemService.editDB(title, price, id);
         return "redirect:/list";
+    }
+
+    //내용 삭제
+    @DeleteMapping("/delete")
+    ResponseEntity<String> deleteItem(@RequestParam Long id) {
+        itemRepository.deleteById(id);
+        return ResponseEntity.status(200).body("삭제완료");
     }
 
 }
