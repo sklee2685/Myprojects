@@ -1,13 +1,11 @@
 package com.example.shop.member;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.DuplicateKeyException;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
 @Service
 @RequiredArgsConstructor
@@ -31,4 +29,9 @@ public class MemberService {
         memberRepository.save(member);
     }
 
+    public MemberDTO userDetail(Long id, Model model) {
+        var userData = memberRepository.findById(id);
+        var result = userData.get();
+        return new MemberDTO(result.getUsername(), result.getDisplayName());
+    }
 }

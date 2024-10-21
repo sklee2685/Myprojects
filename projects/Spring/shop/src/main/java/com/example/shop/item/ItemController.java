@@ -1,24 +1,25 @@
 package com.example.shop.item;
 
-import com.example.shop.member.MemberRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.awt.print.Pageable;
+
 @Controller
 @RequiredArgsConstructor //Lombok 문법
-public class ItemListController { //상품목록 페이지
+public class ItemController { //상품목록 페이지
 
     //ItemRepository 사용하기
     private final ItemRepository itemRepository;
 
     //ItemService 사용하기
     private final ItemService itemService;
-
 
 
     //Lombok 없이 사용
@@ -44,7 +45,7 @@ public class ItemListController { //상품목록 페이지
     @PostMapping("/itemAdd")
     String addPost(@RequestParam String title, @RequestParam Integer price, Authentication auth) {
         itemService.saveItem(title, price, auth);
-        return "redirect:/list";
+        return "redirect:/list/page/1";
     }
 
     //상품 상세페이지 만들기
@@ -59,7 +60,7 @@ public class ItemListController { //상품목록 페이지
 
     //id를 기반으로 기존에 있던 데이터를 불러옴
     @GetMapping("/edit/{id}")
-    String edit(@PathVariable Long id, Model model, String title, Integer price) {
+    String edit(@PathVariable Long id, Model model) {
         itemService.findId(id, model);
         return "edit.html";
     }
@@ -68,7 +69,7 @@ public class ItemListController { //상품목록 페이지
     @PostMapping("/edit")
     String editItem(String title, Integer price, Long id) {
         itemService.editDB(title, price, id);
-        return "redirect:/list";
+        return "redirect:/list/page/1";
     }
 
     //내용 삭제
@@ -78,4 +79,15 @@ public class ItemListController { //상품목록 페이지
         return ResponseEntity.status(200).body("삭제완료");
     }
 
+    //페이지 나누기 (1~5번글 보여주기)
+    @GetMapping("/list/page/{page}")
+    String getListPage(Model model,@PathVariable Integer page) {
+        //PageRequest.of(몇번째 페이지, 페이지방 보여줄 갯수)
+        //{page}값에 따라 게시글을 5개씩 가지고 오기
+        Page<Item> result = itemRepository.findPageBy(PageRequest.of(page - 1, 5));
+        int totalPages = result.getTotalPages(); //총 페이지 수
+        model.addAttribute("items", result);
+        model.addAttribute("totalPages", totalPages);
+        return "list.html";
+    }
 }

@@ -31,18 +31,19 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         //http.csrf((csrf) -> csrf.disable()); // csrf기능 끄기
         http.csrf(csrf -> csrf.csrfTokenRepository(csrfTokenRepository())
-                .ignoringRequestMatchers("/login")// login페이지만 csrf기능 끄고 나머진 켜기
+                .ignoringRequestMatchers("/login","/logout")// login페이지만 csrf기능 끄고 나머진 켜기
         );
         http.authorizeHttpRequests((authorize) ->
-                authorize.requestMatchers("/login").anonymous()//로그인 하지 않은 사용자만 접속 가능
-                        .requestMatchers("/mypage").authenticated()//로그인 한 사용자만 접근 가능
+                authorize.requestMatchers("/login","/register").anonymous()//로그인 하지 않은 사용자만 접속 가능
+                        .requestMatchers("/mypage", "/itemAdd", "/delete", "/edit", "/write").authenticated()//로그인 한 사용자만 접근 가능
                         .requestMatchers("/**").permitAll()//그 외 모든 요청 허용
         );
         //로그인
         http.formLogin((formLogin)
                 -> formLogin.loginPage("/login") // 로그인 할때 사용할 페이지
-                .defaultSuccessUrl("/list") //로그인 성공시 이동할uel
+                .defaultSuccessUrl("/list/page/1") //로그인 성공시 이동할uel
                 .failureUrl("/fail") // 로그인 실패시 이동할 url
+                .permitAll()
         );
         //로그아웃
         http.logout(logout ->

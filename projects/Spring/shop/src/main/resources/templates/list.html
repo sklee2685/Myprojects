@@ -20,7 +20,7 @@
     <div>
         <!--title을 누르면 상세페이지/id 로 이동-->
         <a th:href="@{'/detail/' + ${item.id}}"><h4 th:text="${item.title}">제목</h4></a>
-        <p th:text="${item.price}">가격</p>
+        <p th:text="${item.price}+'원'">가격</p>
         <a th:href="@{'/edit/' + ${item.id}}">수정</a>
         <span th:onclick="fetch('/delete?id=[[${item.id}]]',{method :'DELETE'})
         .then(r=>r.text())
@@ -30,5 +30,14 @@
         ">🗑️</span>
     </div>
 </div>
+<!--    페이지-->
+<div th:if="${totalPages > 1}">
+    <ul class="pagination">
+        <li th:each="i : ${#numbers.sequence(1, totalPages)}" class="page-item">
+            <a th:href="@{'/list/page/' + ${i}}" class="page-link" th:text="${i}">Page Number</a>
+        </li>
+    </ul>
+</div>
+
 </body>
 </html>

@@ -1,13 +1,16 @@
 <!--상단 네비게이션 바-->
 <div class="nav" th:fragment="navbar" xmlns:sec="http://www.w3.org/1999/xhtml">
     <a class="logo">SpringMall</a>
-    <a href="/list">List</a>
+    <a href="/list/page/1">List</a>
     <a href="/write">Write</a>
 <!--    <a href="mypage" sec:authorize="isAuthenticated()" sec:authentication="principal.username"></a>-->
     <a href="/mypage" sec:authorize="isAuthenticated()">
         <span th:text="${#authentication.name} + '님'"></span>
     </a>
     <div sec:authorize="isAuthenticated()">
-    <a href="/login">로그아웃</a>
+        <form th:action="@{/logout}" method="post">
+            <button type="submit">로그아웃</button>
+            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+        </form>
     </div>
 </div>

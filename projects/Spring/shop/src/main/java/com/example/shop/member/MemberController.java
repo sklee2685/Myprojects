@@ -1,17 +1,24 @@
 package com.example.shop.member;
 
+import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.HashMap;
 
 
 @Controller
 @RequiredArgsConstructor
 public class MemberController {
     private final MemberService memberService;
+    private final MemberRepository memberRepository;
 
     @GetMapping("/register")
     public String register() {
@@ -38,5 +45,13 @@ public class MemberController {
         System.out.println(auth.isAuthenticated()); //로그인여부 검사가능
 
         return "mypage.html";
+    }
+
+    //유저 상세페이지
+    @GetMapping("/user/{id}")
+    @ResponseBody
+    public MemberDTO getUser(@PathVariable Long id, Model model) {
+        MemberDTO userData = memberService.userDetail(id, model);
+        return userData;
     }
 }

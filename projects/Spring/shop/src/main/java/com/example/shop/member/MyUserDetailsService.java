@@ -24,7 +24,7 @@ public class MyUserDetailsService implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         //DB에서 username을 가진 유저를 찾아와서
         //return new User(유저아이디, 비번, 권한)
-        Optional<Member> findMember = memberRepository.findAllByusername(username);
+        Optional<Member> findMember = memberRepository.findAllByUsername(username);
         if (findMember.isEmpty()) {
             throw new UsernameNotFoundException("입력한 아이디가 없습니다.");
         }
