@@ -1,17 +1,25 @@
 package com.example.shop.member;
 
+import com.example.shop.item.Item;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.DuplicateKeyException;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
+
+import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
 public class MemberService {
 
     private final MemberRepository memberRepository;
+
     private final PasswordEncoder passwordEncoder;
 
     //회원 가입
@@ -29,9 +37,12 @@ public class MemberService {
         memberRepository.save(member);
     }
 
-    public MemberDTO userDetail(Long id, Model model) {
-        var userData = memberRepository.findById(id);
-        var result = userData.get();
-        return new MemberDTO(result.getUsername(), result.getDisplayName());
+
+    public void userDetail(Authentication auth, Model model) {
+        String username = auth.getName();
+        Member member = memberRepository.findByUsername(username);
+        if (member != null) {
+            model.addAttribute("member", member);
+        }
     }
 }

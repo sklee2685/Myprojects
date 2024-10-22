@@ -26,11 +26,11 @@
         .then(r=>r.text())
         .then(()=>{
             location.reload()
-        })
-        ">🗑️</span>
+        })">🗑️</span>
     </div>
 </div>
-<!--    페이지-->
+
+<!--페이지 넘버-->
 <div th:if="${totalPages > 1}">
     <ul class="pagination">
         <li th:each="i : ${#numbers.sequence(1, totalPages)}" class="page-item">

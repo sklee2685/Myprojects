@@ -14,6 +14,6 @@ public class Member {
 
     @Column(unique = true)
     public String username;
-    public String displayName;
     public String password;
+    public String displayName;
 }

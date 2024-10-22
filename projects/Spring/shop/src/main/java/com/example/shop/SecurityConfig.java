@@ -2,6 +2,7 @@ package com.example.shop;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -31,11 +32,11 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         //http.csrf((csrf) -> csrf.disable()); // csrf기능 끄기
         http.csrf(csrf -> csrf.csrfTokenRepository(csrfTokenRepository())
-                .ignoringRequestMatchers("/login","/logout")// login페이지만 csrf기능 끄고 나머진 켜기
+                .ignoringRequestMatchers("/login","/logout","/delete")// login페이지만 csrf기능 끄고 나머진 켜기
         );
         http.authorizeHttpRequests((authorize) ->
                 authorize.requestMatchers("/login","/register").anonymous()//로그인 하지 않은 사용자만 접속 가능
-                        .requestMatchers("/mypage", "/itemAdd", "/delete", "/edit", "/write").authenticated()//로그인 한 사용자만 접근 가능
+                        .requestMatchers("/mypage", "/itemAdd", "/edit", "/write").authenticated()//로그인 한 사용자만 접근 가능
                         .requestMatchers("/**").permitAll()//그 외 모든 요청 허용
         );
         //로그인

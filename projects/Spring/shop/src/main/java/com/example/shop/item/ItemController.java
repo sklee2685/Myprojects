@@ -1,5 +1,7 @@
 package com.example.shop.item;
 
+import com.example.shop.member.MemberRepository;
+import com.example.shop.member.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -18,6 +20,8 @@ public class ItemController { //상품목록 페이지
     //ItemRepository 사용하기
     private final ItemRepository itemRepository;
 
+    private final MemberRepository memberRepository;
+
     //ItemService 사용하기
     private final ItemService itemService;
 
@@ -32,7 +36,6 @@ public class ItemController { //상품목록 페이지
     String list(Model model) {
         //item db에 있는 테이블 데이터 꺼내기
         itemService.dbList();
-
         model.addAttribute("items", itemRepository.findAll());
         return "list.html";
     }

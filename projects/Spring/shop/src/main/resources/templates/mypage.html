@@ -14,12 +14,21 @@
 
 <div sec:authentication="principal"></div>
 <div sec:authentication="principal.username"></div>
-<div sec:authorize="hasAuthority('일반유저')"> <!--해당 권한을 가지고있을 겨우 아래 내용을 보여줌-->
-    <h4>일반 유저의 권한을 가지고 있습니다.</h4>
-</div>
-<div sec:authorize="isAuthenticated()"> <!--로그인한 사람만 아래 내용을 보여줌-->
+
+<div sec:authorize="isAuthenticated()"> <!-- 로그인한 사람만 아래 내용을 보여줌 -->
     <h4>마이페이지 입니다</h4>
+    <div th:if="${member != null}">
+        <p>ID: <span th:text="${member.username}"></span></p>
+        <p>닉네임: <span th:text="${member.displayName}"></span></p>
+        <div sec:authorize="hasAuthority('일반유저')"> <!--해당 권한을 가지고있을 겨우 아래 내용을 보여줌-->
+            <h4>권한: 일반 유저</h4>
+        </div>
+    </div>
+    <div th:if="${member == null}">
+        <p>사용자 정보를 불러올 수 없습니다.</p>
+    </div>
 </div>
+
 <div sec:authorize="isAnonymous()"> <!--로그아웃 상태인 사람만 아래 내용을 보여줌-->
     <h4>로그아웃 되어있는 상태입니다.</h4>
 </div>

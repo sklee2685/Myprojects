@@ -1,6 +1,7 @@
 package com.example.shop.item;
 
 import com.example.shop.member.Member;
+import com.example.shop.member.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -15,13 +16,19 @@ import java.util.Optional;
 public class ItemService {//데이터 전송 전에 이거저거 처리해주는 비즈니스 로직
 
     private final ItemRepository itemRepository;
+    private final MemberRepository memberRepository;
 
     public void saveItem(String title, Integer price , Authentication auth) {//서버에서 db로 데이터 입출력
-        Item items = new Item();
-        items.setTitle(title);
-        items.setPrice(price);
-        items.setAddUser(auth.getName());
-        itemRepository.save(items);
+        // 서버에서 db로 데이터 입출력
+        String username = auth.getName();
+        Member member = memberRepository.findByUsername(username);
+        if (member != null) {
+            Item items = new Item();
+            items.setTitle(title);
+            items.setPrice(price);
+            items.setAddUser(member.getDisplayName()); // Member의 displayName 추가
+            itemRepository.save(items);
+        }
     }
     //서버에서 db로 데이터 전송 (위에 코드는 아래 코드를 자세히)
     //@PostMapping("/itemAdd")
