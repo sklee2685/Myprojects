@@ -18,9 +18,64 @@
     <div>
         <h4><td th:text="${id.title}"></td></h4>
         <p><td th:text="${id.price}"></td></p>
-        <p>생성자:<td th:text="${id.addUser}"></td></p>
     </div>
 </div>
+
+<div class="comments" th:each="comment : ${comment}">
+    <style>
+        .comments {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .comment-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            max-width: 450px;
+        }
+
+
+        .comment-header {
+            margin-bottom: 10px; /* 작성자와 내용 사이 여백 */
+        }
+
+        .comment-author {
+            font-weight: bold;
+            color: #333;
+            border-bottom: 1px solid #ccc; /* 회색 줄 */
+            padding-bottom: 4px; /* 글자와 줄 간격 */
+            margin: 0; /* h4 기본 여백 제거 */
+        }
+
+        .comment-body {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.5;
+        }
+    </style>
+    <div class="comment-card">
+        <div class="comment-header">
+            <h4 class="comment-author" th:text="${comment.username}"></h4><!--작성자-->
+        </div>
+        <div class="comment-body">
+            <p th:text="${comment.content}"></p><!--내용-->
+        </div>
+    </div>
+</div>
+
+
+<form action="/comment" method="POST">
+    <!--CSRF 기능-->
+    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+
+    <input name="content">
+    <input name="parentId" th:value="${id.id}" style="display: none">
+    <button type="submit">작성</button>
+</form>
 
 </body>
 </html>

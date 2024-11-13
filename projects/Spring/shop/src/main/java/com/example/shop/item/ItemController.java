@@ -1,5 +1,6 @@
 package com.example.shop.item;
 
+import com.example.shop.comment.CommentRepository;
 import com.example.shop.member.MemberRepository;
 import com.example.shop.member.MemberService;
 import lombok.RequiredArgsConstructor;
@@ -24,6 +25,7 @@ public class ItemController { //상품목록 페이지
 
     //ItemService 사용하기
     private final ItemService itemService;
+    private final CommentRepository commentRepository;
 
 
     //Lombok 없이 사용
@@ -54,10 +56,13 @@ public class ItemController { //상품목록 페이지
     //상품 상세페이지 만들기
     @GetMapping("/detail/{id}")
     String detail(@PathVariable Long id, Model model) {
+
         if (itemService.findId(id, model)) {//전달 받은 id값을 기반으로 데이터가 있는지 검사
+            //댓글
+            model.addAttribute("comment", commentRepository.findAllByParentId(id));
             return "detail.html";
         } else {
-            return "redirect:/list";
+            return "redirect:/list/page/1";
         }
     }
 

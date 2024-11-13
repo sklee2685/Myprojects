@@ -36,7 +36,7 @@ public class SecurityConfig {
         );
         http.authorizeHttpRequests((authorize) ->
                 authorize.requestMatchers("/login","/register").anonymous()//로그인 하지 않은 사용자만 접속 가능
-                        .requestMatchers("/mypage", "/itemAdd", "/edit", "/write").authenticated()//로그인 한 사용자만 접근 가능
+                        .requestMatchers("/mypage", "/itemAdd", "/edit", "/write","/comment").authenticated()//로그인 한 사용자만 접근 가능
                         .requestMatchers("/**").permitAll()//그 외 모든 요청 허용
         );
         //로그인

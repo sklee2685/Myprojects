@@ -10,6 +10,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
@@ -33,7 +34,7 @@ public class MyUserDetailsService implements UserDetailsService {
         List<GrantedAuthority> role = new ArrayList<>();
         role.add(new SimpleGrantedAuthority("일반유저"));
 
-        return new User(user.getUsername(),user.getPassword(),role);
+        var customData = new CustomUser(user.getUsername(),user.getPassword(),role,user.displayName);
+        return customData;
     }
-
 }

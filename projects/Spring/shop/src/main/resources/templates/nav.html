@@ -5,7 +5,7 @@
     <a href="/write">Write</a>
 <!--    <a href="mypage" sec:authorize="isAuthenticated()" sec:authentication="principal.username"></a>-->
     <a href="/mypage" sec:authorize="isAuthenticated()">
-        <span th:text="${#authentication.name} + '님'"></span>
+        <span th:text="${#authentication.principal.displayName} + '님'"></span>
     </a>
     <div sec:authorize="isAuthenticated()">
         <form th:action="@{/logout}" method="post">
